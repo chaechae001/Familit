@@ -6,6 +6,7 @@ import {
   useRouter,
   HeadContent,
   Scripts,
+  type ErrorComponentProps,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 
@@ -17,16 +18,16 @@ function NotFoundComponent() {
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
+        <h2 className="mt-4 text-xl font-semibold text-foreground">페이지를 찾을 수 없습니다</h2>
         <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
+          주소를 확인하거나 첫 화면으로 이동해 주세요.
         </p>
         <div className="mt-6">
           <Link
             to="/"
             className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
-            Go home
+            첫 화면으로 이동
           </Link>
         </div>
       </div>
@@ -34,7 +35,7 @@ function NotFoundComponent() {
   );
 }
 
-function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+function ErrorComponent({ error, reset }: ErrorComponentProps) {
   console.error(error);
   const router = useRouter();
   useEffect(() => {
@@ -45,10 +46,10 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="text-xl font-semibold tracking-tight text-foreground">
-          This page didn't load
+          화면을 불러오지 못했습니다
         </h1>
         <p className="mt-2 text-sm text-muted-foreground">
-          Something went wrong on our end. You can try refreshing or head back home.
+          다시 시도하거나 첫 화면으로 이동해 주세요.
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
@@ -58,13 +59,13 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
             }}
             className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
-            Try again
+            다시 시도
           </button>
           <a
             href="/"
             className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
           >
-            Go home
+            첫 화면으로 이동
           </a>
         </div>
       </div>
@@ -77,26 +78,49 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "referrer", content: "no-referrer" },
       { title: "Familit — 가족을 챙겨주는 AI 비서" },
-      { name: "description", content: "부모님 생신, 명절, 건강검진, 가족 모임까지. Familit이 가족이 함께 챙겨야 할 일을 카드로 정리하고, 체크리스트로 나누고, 가족끼리 챙겨야 할 일을 놓치지 않도록 돕습니다." },
+      {
+        name: "description",
+        content:
+          "부모님 생신, 명절, 건강검진, 가족 모임까지. Familit이 가족이 함께 챙겨야 할 일을 카드로 정리하고, 체크리스트로 나누고, 가족끼리 챙겨야 할 일을 놓치지 않도록 돕습니다.",
+      },
       { name: "author", content: "Familit" },
       { property: "og:title", content: "Familit — 가족을 챙겨주는 AI 비서" },
-      { property: "og:description", content: "부모님 생신, 명절, 건강검진, 가족 모임까지. Familit이 가족이 함께 챙겨야 할 일을 카드로 정리하고, 체크리스트로 나누고, 가족끼리 챙겨야 할 일을 놓치지 않도록 돕습니다." },
+      {
+        property: "og:description",
+        content:
+          "부모님 생신, 명절, 건강검진, 가족 모임까지. Familit이 가족이 함께 챙겨야 할 일을 카드로 정리하고, 체크리스트로 나누고, 가족끼리 챙겨야 할 일을 놓치지 않도록 돕습니다.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Familit — 가족을 챙겨주는 AI 비서" },
-      { name: "twitter:description", content: "부모님 생신, 명절, 건강검진, 가족 모임까지. Familit이 가족이 함께 챙겨야 할 일을 카드로 정리하고, 체크리스트로 나누고, 가족끼리 챙겨야 할 일을 놓치지 않도록 돕습니다." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/868deb72-af78-4b83-97c4-d76181c7a9f1/id-preview-806f3e7f--af0c859a-4354-40c5-8eb8-f226a61653d0.lovable.app-1781612034492.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/868deb72-af78-4b83-97c4-d76181c7a9f1/id-preview-806f3e7f--af0c859a-4354-40c5-8eb8-f226a61653d0.lovable.app-1781612034492.png" },
+      {
+        name: "twitter:description",
+        content:
+          "부모님 생신, 명절, 건강검진, 가족 모임까지. Familit이 가족이 함께 챙겨야 할 일을 카드로 정리하고, 체크리스트로 나누고, 가족끼리 챙겨야 할 일을 놓치지 않도록 돕습니다.",
+      },
+      {
+        property: "og:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/868deb72-af78-4b83-97c4-d76181c7a9f1/id-preview-806f3e7f--af0c859a-4354-40c5-8eb8-f226a61653d0.lovable.app-1781612034492.png",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/868deb72-af78-4b83-97c4-d76181c7a9f1/id-preview-806f3e7f--af0c859a-4354-40c5-8eb8-f226a61653d0.lovable.app-1781612034492.png",
+      },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "icon", type: "image/png", href: "/favicon.png" },
       { rel: "apple-touch-icon", href: "/favicon.png" },
       { rel: "preconnect", href: "https://cdn.jsdelivr.net" },
-      { rel: "stylesheet", href: "https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" },
+      {
+        rel: "stylesheet",
+        href: "https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css",
+      },
     ],
-
   }),
   shellComponent: RootShell,
   component: RootComponent,
@@ -106,7 +130,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="ko">
       <head>
         <HeadContent />
       </head>

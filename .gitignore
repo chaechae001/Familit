@@ -41,6 +41,15 @@ dist-ssr
 **/node_modules/
 **/.next/
 **/*.tsbuildinfo
+coverage/
+playwright-report/
+test-results/
+supabase/.temp/
+supabase/.branches/
+*.pem
+*.key
+*.p12
+*.pfx
 
 # Personal working notes stay local; README is a portfolio presentation.
 **/AGENTS.md
@@ -59,3 +68,6 @@ dist-ssr
 /docs/PROJECT_STATUS.md
 /docs/VERIFICATION.md
 /src/routes/README.md
+
+/docs/CLEANUP*.md
+/docs/LOCAL_GUIDE.md
