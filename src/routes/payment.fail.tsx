@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { AlertCircle, RotateCcw } from "lucide-react";
 import { z } from "zod";
-import { PaymentHeader } from "@/components/PaymentHeader";
+import { PaymentHeader } from "@/components/payment/PaymentHeader";
 
 const failSearchSchema = z.object({
   code: z.string().optional(),

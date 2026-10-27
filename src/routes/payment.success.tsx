@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { CheckCircle2, Clock3, LoaderCircle, ReceiptText } from "lucide-react";
 import { z } from "zod";
-import { PaymentHeader } from "@/components/PaymentHeader";
+import { PaymentHeader } from "@/components/payment/PaymentHeader";
 import { confirmTossPayment } from "@/lib/toss-payment.functions";
 import { formatWon } from "@/lib/plans";
 
@@ -95,7 +95,7 @@ function PaymentSuccessPage() {
       <p className="mt-5 text-xs font-bold tracking-wide text-primary">PAYMENT COMPLETE</p>
       <h1 className="mt-2 font-display text-3xl font-bold">Familit Plus 결제가 완료됐어요</h1>
       <p className="mt-3 text-sm leading-relaxed text-muted-foreground break-keep">
-        이제 한 달 동안 AI 준비목록과 무제한 가족 액션 카드를 테스트할 수 있어요.
+        테스트 결제 흐름을 확인했어요. 실제 이용권은 발급되지 않으며 데모를 계속 체험할 수 있어요.
       </p>
       <dl className="mt-7 space-y-3 rounded-2xl bg-muted/65 p-5 text-sm">
         <Row label="상품" value={result.orderName} />
@@ -105,7 +105,7 @@ function PaymentSuccessPage() {
       </dl>
       <p className="mt-4 flex items-center justify-center gap-1.5 text-xs text-muted-foreground">
         <Clock3 className="h-3.5 w-3.5" />
-        자동 갱신되지 않는 1개월 이용권입니다.
+        테스트 승인 결과이며 실제 요금은 청구되지 않습니다.
       </p>
       <Link
         to="/demo"

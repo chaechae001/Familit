@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import FamilitDemo from "@/components/FamilitDemo";
-import { FamilitLogo } from "@/components/FamilitLogo";
+import FamilitDemo from "@/components/demo/FamilitDemo";
+import { FamilitLogo } from "@/components/ui/FamilitLogo";
 
 export const Route = createFileRoute("/demo")({
   head: () => ({

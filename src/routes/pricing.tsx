@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Check, HeartHandshake, Sparkles } from "lucide-react";
-import { PaymentHeader } from "@/components/PaymentHeader";
+import { PaymentHeader } from "@/components/payment/PaymentHeader";
 import { plans } from "@/lib/plans";
 
 export const Route = createFileRoute("/pricing")({
@@ -39,9 +39,11 @@ function PricingPage() {
         </div>
 
         <div className="mx-auto mt-8 max-w-4xl rounded-2xl border border-accent/25 bg-accent-soft/45 p-5 text-sm leading-relaxed text-muted-foreground break-keep">
-          <strong className="text-foreground">현재는 테스트 결제 단계예요.</strong> Plus는 일반결제
-          방식의 1개월 이용권이며 자동 갱신되지 않습니다. 실제 정기 구독은 사용자 검증 이후 별도로
-          안내합니다.
+          <strong className="text-foreground">
+            현재는 요금제와 테스트 결제를 보여주는 데모예요.
+          </strong>{" "}
+          표시된 기능은 서비스 설계안이며 실제 이용권은 발급되지 않습니다. 테스트 결제에는 실제
+          요금이 청구되지 않습니다.
         </div>
       </section>
     </main>

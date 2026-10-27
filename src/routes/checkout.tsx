@@ -3,7 +3,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { loadTossPayments, ANONYMOUS } from "@tosspayments/tosspayments-sdk";
 import { Check, LockKeyhole, ShieldCheck } from "lucide-react";
 import { z } from "zod";
-import { PaymentHeader } from "@/components/PaymentHeader";
+import { PaymentHeader } from "@/components/payment/PaymentHeader";
 import { formatWon, plans } from "@/lib/plans";
 
 const searchSchema = z.object({ plan: z.literal("plus").catch("plus") });
@@ -31,6 +31,11 @@ function CheckoutPage() {
       try {
         const clientKey = import.meta.env.VITE_TOSS_CLIENT_KEY;
         if (!clientKey) throw new Error("VITE_TOSS_CLIENT_KEY 환경변수가 설정되지 않았습니다.");
+        if (!/^test_gck_[A-Za-z0-9_-]+$/.test(clientKey)) {
+          throw new Error(
+            "테스트 결제용 클라이언트 키를 설정해 주세요. 실결제는 지원하지 않습니다.",
+          );
+        }
         const tossPayments = await loadTossPayments(clientKey);
         const instance = tossPayments.widgets({ customerKey: ANONYMOUS });
         await instance.setAmount({ currency: "KRW", value: plan.price });
