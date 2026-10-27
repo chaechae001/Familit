@@ -73,20 +73,32 @@ function Nav() {
         <a href="#top" className="flex items-center gap-2">
           <FamilitLogo size={32} />
           <span className="font-display text-lg font-bold tracking-tight">
-            Familit<span className="ml-1 text-[12px] font-semibold text-muted-foreground">패밀릿</span>
+            Familit
+            <span className="ml-1 text-[12px] font-semibold text-muted-foreground">패밀릿</span>
           </span>
         </a>
         <nav className="hidden items-center gap-7 text-sm text-muted-foreground md:flex">
-          <a href="#problem" className="hover:text-foreground">문제</a>
-          <a href="#solution" className="hover:text-foreground">해결</a>
-          <a href="#features" className="hover:text-foreground">기능</a>
-          <a href="#faq" className="hover:text-foreground">FAQ</a>
+          <a href="#problem" className="hover:text-foreground">
+            문제
+          </a>
+          <a href="#solution" className="hover:text-foreground">
+            해결
+          </a>
+          <a href="#features" className="hover:text-foreground">
+            기능
+          </a>
+          <a href="/pricing" className="hover:text-foreground">
+            요금제
+          </a>
+          <a href="#faq" className="hover:text-foreground">
+            FAQ
+          </a>
         </nav>
         <a
-          href="#beta"
+          href="/pricing"
           className="rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-soft)] hover:opacity-95"
         >
-          베타 신청
+          요금제 보기
         </a>
       </div>
     </header>
@@ -99,7 +111,6 @@ function AppMockup() {
   return (
     <div className="relative mx-auto w-full max-w-[340px]">
       <div className="relative rounded-[2.2rem] border border-border bg-foreground/90 p-2 shadow-[0_30px_80px_-30px_color-mix(in_oklab,var(--primary)_45%,transparent)]">
-
         <div className="overflow-hidden rounded-[1.8rem] bg-background">
           {/* status bar */}
           <div className="flex items-center justify-between px-5 pt-3 text-[11px] font-semibold text-muted-foreground">
@@ -157,7 +168,9 @@ function AppMockup() {
                     나
                   </span>
                 </div>
-                <span className="text-[11px] text-muted-foreground break-keep">가족 3명 참여중</span>
+                <span className="text-[11px] text-muted-foreground break-keep">
+                  가족 3명 참여중
+                </span>
               </div>
             </div>
 
@@ -165,7 +178,9 @@ function AppMockup() {
             <div className="rounded-2xl border border-accent/30 bg-accent-soft/60 p-4">
               <div className="flex items-start justify-between">
                 <div>
-                  <div className="text-[11px] font-semibold text-accent-foreground">D-3 · 건강검진</div>
+                  <div className="text-[11px] font-semibold text-accent-foreground">
+                    D-3 · 건강검진
+                  </div>
                   <div className="mt-0.5 text-[15px] font-bold break-keep">아빠 건강검진</div>
                 </div>
                 <span className="text-lg">🩺</span>
@@ -248,11 +263,36 @@ function Hero() {
 
 function Problem() {
   const items = [
-    { Icon: Cake, bg: "#FFE4EC", fg: "#E0457B", t: "바쁜 일상 속에서 부모님 생신을 급하게 준비하는 경우가 생깁니다." },
-    { Icon: CalendarClock, bg: "#E4F0FF", fg: "#2F6FE0", t: "가족 모임 날짜를 정하는 데 오래 걸립니다." },
-    { Icon: Stethoscope, bg: "#E1F5EC", fg: "#1F9D6B", t: "건강검진 일정을 놓치면 더 마음이 쓰입니다." },
-    { Icon: MessageCircle, bg: "#FFF1DC", fg: "#D97A1F", t: "가족 단톡방에서 얘기를 해도 기억하기 어렵습니다." },
-    { Icon: Calendar, bg: "#EFE7FB", fg: "#7A4DD1", t: "캘린더에 적어도 실제 행동으로 이어지기 힘듭니다." },
+    {
+      Icon: Cake,
+      bg: "#FFE4EC",
+      fg: "#E0457B",
+      t: "바쁜 일상 속에서 부모님 생신을 급하게 준비하는 경우가 생깁니다.",
+    },
+    {
+      Icon: CalendarClock,
+      bg: "#E4F0FF",
+      fg: "#2F6FE0",
+      t: "가족 모임 날짜를 정하는 데 오래 걸립니다.",
+    },
+    {
+      Icon: Stethoscope,
+      bg: "#E1F5EC",
+      fg: "#1F9D6B",
+      t: "건강검진 일정을 놓치면 더 마음이 쓰입니다.",
+    },
+    {
+      Icon: MessageCircle,
+      bg: "#FFF1DC",
+      fg: "#D97A1F",
+      t: "가족 단톡방에서 얘기를 해도 기억하기 어렵습니다.",
+    },
+    {
+      Icon: Calendar,
+      bg: "#EFE7FB",
+      fg: "#7A4DD1",
+      t: "캘린더에 적어도 실제 행동으로 이어지기 힘듭니다.",
+    },
   ];
   return (
     <Section id="problem">
@@ -294,10 +334,34 @@ function Problem() {
 
 function Compare() {
   const rows = [
-    { Icon: Calendar, bg: "#E4F0FF", fg: "#2F6FE0", name: "캘린더", desc: "날짜는 알려주지만, 무엇을 준비해야 하는지는 알려주지 않습니다." },
-    { Icon: MessageCircle, bg: "#FFF1DC", fg: "#D97A1F", name: "가족 단톡방", desc: "대화는 빠르지만, 결정사항과 할 일이 쉽게 흘러갑니다." },
-    { Icon: Plane, bg: "#E1F5EC", fg: "#1F9D6B", name: "여행 앱", desc: "여행 코스는 잘 짜주지만, 가족 간 역할 분담과 부모님 확인에는 어울리지 않습니다." },
-    { Icon: ShoppingBag, bg: "#FFE4EC", fg: "#E0457B", name: "커머스 앱", desc: "선물은 살 수 있지만, 가족 의견과 과거 선물 기록까지 관리하기 어렵습니다." },
+    {
+      Icon: Calendar,
+      bg: "#E4F0FF",
+      fg: "#2F6FE0",
+      name: "캘린더",
+      desc: "날짜는 알려주지만, 무엇을 준비해야 하는지는 알려주지 않습니다.",
+    },
+    {
+      Icon: MessageCircle,
+      bg: "#FFF1DC",
+      fg: "#D97A1F",
+      name: "가족 단톡방",
+      desc: "대화는 빠르지만, 결정사항과 할 일이 쉽게 흘러갑니다.",
+    },
+    {
+      Icon: Plane,
+      bg: "#E1F5EC",
+      fg: "#1F9D6B",
+      name: "여행 앱",
+      desc: "여행 코스는 잘 짜주지만, 가족 간 역할 분담과 부모님 확인에는 어울리지 않습니다.",
+    },
+    {
+      Icon: ShoppingBag,
+      bg: "#FFE4EC",
+      fg: "#E0457B",
+      name: "커머스 앱",
+      desc: "선물은 살 수 있지만, 가족 의견과 과거 선물 기록까지 관리하기 어렵습니다.",
+    },
   ];
   return (
     <Section id="compare" className="bg-surface">
@@ -329,7 +393,9 @@ function Compare() {
                   <div className="font-display text-base font-bold break-keep">{name}</div>
                 </div>
               </div>
-              <p className="mt-3 text-[13.5px] leading-relaxed text-muted-foreground break-keep">{desc}</p>
+              <p className="mt-3 text-[13.5px] leading-relaxed text-muted-foreground break-keep">
+                {desc}
+              </p>
             </div>
           ))}
         </div>
@@ -349,9 +415,15 @@ function Compare() {
             “액션 카드”로 정리하고 완료까지
           </div>
           <ul className="mt-5 space-y-2 text-[14px] opacity-95 break-keep">
-            <li className="flex gap-2"><span>✓</span> 흘러가던 대화를 액션 카드로 남깁니다</li>
-            <li className="flex gap-2"><span>✓</span> 해야 할 일을 단계로 나눠줍니다</li>
-            <li className="flex gap-2"><span>✓</span> 가족 구성원끼리 확인, 응답하며 할 일을 완료합니다.</li>
+            <li className="flex gap-2">
+              <span>✓</span> 흘러가던 대화를 액션 카드로 남깁니다
+            </li>
+            <li className="flex gap-2">
+              <span>✓</span> 해야 할 일을 단계로 나눠줍니다
+            </li>
+            <li className="flex gap-2">
+              <span>✓</span> 가족 구성원끼리 확인, 응답하며 할 일을 완료합니다.
+            </li>
           </ul>
         </div>
       </div>
@@ -361,9 +433,21 @@ function Compare() {
 
 function Solution() {
   const steps = [
-    { n: "01", t: "가족 이벤트 등록", d: "엄마 생신, 아빠 건강검진, 가족 모임처럼 챙길 일을 한 줄로 등록합니다." },
-    { n: "02", t: "체크리스트 생성", d: "일정 결정, 예약 확인, 준비물, 결과 확인 등을 체크리스트로 정리합니다." },
-    { n: "03", t: "가족 확인 후 완료", d: "가족 구성원이 확인, 응답하면 카드가 완료로 정리됩니다." },
+    {
+      n: "01",
+      t: "가족 이벤트 등록",
+      d: "엄마 생신, 아빠 건강검진, 가족 모임처럼 챙길 일을 한 줄로 등록합니다.",
+    },
+    {
+      n: "02",
+      t: "체크리스트 생성",
+      d: "일정 결정, 예약 확인, 준비물, 결과 확인 등을 체크리스트로 정리합니다.",
+    },
+    {
+      n: "03",
+      t: "가족 확인 후 완료",
+      d: "가족 구성원이 확인, 응답하면 카드가 완료로 정리됩니다.",
+    },
   ];
   return (
     <Section id="solution">
@@ -392,7 +476,9 @@ function Solution() {
           >
             <div className="font-display text-5xl font-extrabold text-primary-soft">{s.n}</div>
             <div className="mt-3 font-display text-xl font-bold break-keep">{s.t}</div>
-            <p className="mt-2 text-[14.5px] leading-relaxed text-muted-foreground break-keep">{s.d}</p>
+            <p className="mt-2 text-[14.5px] leading-relaxed text-muted-foreground break-keep">
+              {s.d}
+            </p>
           </div>
         ))}
       </div>
@@ -402,11 +488,31 @@ function Solution() {
 
 function Features() {
   const feats = [
-    { e: "🗂️", t: "가족 액션 카드", d: "생신, 가족 모임, 기념일, 건강검진처럼 챙겨야 할 일을 한 장의 카드로 정리합니다." },
-    { e: "✅", t: "체크리스트", d: "‘엄마 생신 준비’, ‘아빠 건강검진’ 같은 일을 실행 가능한 단계로 나눠줍니다." },
-    { e: "👨‍👩‍👧", t: "가족 확인 / 응답", d: "부모님과 가족이 ‘확인했어요’, ‘이 날짜가 좋아요’처럼 한 번에 응답할 수 있습니다." },
-    { e: "🎁", t: "선물 후보 관리", d: "부모님 취향, 예산, 가족 의견, 과거 선물 기록을 한곳에서 관리합니다." },
-    { e: "🩺", t: "건강검진 루틴", d: "예약 확인, 검진 전 준비, 결과 확인, 다음 검진 주기까지 놓치지 않게 돕습니다." },
+    {
+      e: "🗂️",
+      t: "가족 액션 카드",
+      d: "생신, 가족 모임, 기념일, 건강검진처럼 챙겨야 할 일을 한 장의 카드로 정리합니다.",
+    },
+    {
+      e: "✅",
+      t: "체크리스트",
+      d: "‘엄마 생신 준비’, ‘아빠 건강검진’ 같은 일을 실행 가능한 단계로 나눠줍니다.",
+    },
+    {
+      e: "👨‍👩‍👧",
+      t: "가족 확인 / 응답",
+      d: "부모님과 가족이 ‘확인했어요’, ‘이 날짜가 좋아요’처럼 한 번에 응답할 수 있습니다.",
+    },
+    {
+      e: "🎁",
+      t: "선물 후보 관리",
+      d: "부모님 취향, 예산, 가족 의견, 과거 선물 기록을 한곳에서 관리합니다.",
+    },
+    {
+      e: "🩺",
+      t: "건강검진 루틴",
+      d: "예약 확인, 검진 전 준비, 결과 확인, 다음 검진 주기까지 놓치지 않게 돕습니다.",
+    },
   ];
   return (
     <Section id="features" className="bg-surface">
@@ -429,7 +535,9 @@ function Features() {
               {f.e}
             </div>
             <div className="mt-4 font-display text-lg font-bold break-keep">{f.t}</div>
-            <p className="mt-1.5 text-[14.5px] leading-relaxed text-muted-foreground break-keep">{f.d}</p>
+            <p className="mt-1.5 text-[14.5px] leading-relaxed text-muted-foreground break-keep">
+              {f.d}
+            </p>
           </div>
         ))}
       </div>
@@ -443,7 +551,13 @@ function UseCases() {
       e: "🎂",
       title: "엄마 생신 준비",
       tag: "D-14 부터",
-      items: ["선물 후보 정리", "가족 의견 받기", "식당 예약 체크", "케이크 주문 체크", "축하 메시지 준비"],
+      items: [
+        "선물 후보 정리",
+        "가족 의견 받기",
+        "식당 예약 체크",
+        "케이크 주문 체크",
+        "축하 메시지 준비",
+      ],
     },
     {
       e: "🩺",
@@ -471,7 +585,10 @@ function UseCases() {
       </div>
       <div className="mt-10 grid gap-5 md:grid-cols-3">
         {cases.map((c) => (
-          <div key={c.title} className="flex flex-col rounded-3xl border border-border bg-card p-6 shadow-[var(--shadow-soft)]">
+          <div
+            key={c.title}
+            className="flex flex-col rounded-3xl border border-border bg-card p-6 shadow-[var(--shadow-soft)]"
+          >
             <div className="flex items-center justify-between">
               <span className="grid h-11 w-11 place-items-center rounded-2xl bg-accent-soft text-2xl">
                 {c.e}
@@ -524,11 +641,12 @@ function ParentFriendly() {
         </div>
 
         <div className="mx-auto w-full max-w-sm rounded-[2rem] border border-border bg-card p-6 shadow-[var(--shadow-card)]">
-          <div className="text-sm font-semibold text-muted-foreground break-keep">아들 지원이가 보냈어요</div>
+          <div className="text-sm font-semibold text-muted-foreground break-keep">
+            아들 지원이가 보냈어요
+          </div>
           <h3 className="mt-2 font-display text-2xl font-bold leading-snug break-keep">
             엄마, 이번 생신 식당
-            <br />
-            이 날짜 괜찮으세요?
+            <br />이 날짜 괜찮으세요?
           </h3>
           <div className="mt-4 rounded-2xl bg-primary-soft/60 p-4 text-[15px]">
             <div className="font-semibold break-keep">11월 22일 (토) 저녁 6시</div>
@@ -556,9 +674,21 @@ function ParentFriendly() {
 
 function HowItWorks() {
   const steps = [
-    { n: "1", t: "가족 일을 등록합니다", d: "엄마 생신, 아빠 건강검진, 가족 모임처럼 챙길 일을 등록합니다." },
-    { n: "2", t: "등록한 이벤트에 맞게 일을 정리해줍니다", d: "일정 결정, 예약 확인, 준비물, 결과 확인 등을 체크리스트로 정리합니다." },
-    { n: "3", t: "가족이 함께 확인하고 완료합니다", d: "부모님과 자녀가 함께 확인하고, 의견을 남기며, 완료를 공유합니다." },
+    {
+      n: "1",
+      t: "가족 일을 등록합니다",
+      d: "엄마 생신, 아빠 건강검진, 가족 모임처럼 챙길 일을 등록합니다.",
+    },
+    {
+      n: "2",
+      t: "등록한 이벤트에 맞게 일을 정리해줍니다",
+      d: "일정 결정, 예약 확인, 준비물, 결과 확인 등을 체크리스트로 정리합니다.",
+    },
+    {
+      n: "3",
+      t: "가족이 함께 확인하고 완료합니다",
+      d: "부모님과 자녀가 함께 확인하고, 의견을 남기며, 완료를 공유합니다.",
+    },
   ];
   return (
     <Section id="how">
@@ -578,7 +708,9 @@ function HowItWorks() {
               {s.n}
             </div>
             <h3 className="mt-4 font-display text-lg font-bold break-keep">{s.t}</h3>
-            <p className="mt-2 text-[14.5px] leading-relaxed text-muted-foreground break-keep">{s.d}</p>
+            <p className="mt-2 text-[14.5px] leading-relaxed text-muted-foreground break-keep">
+              {s.d}
+            </p>
           </div>
         ))}
       </div>
@@ -621,7 +753,9 @@ function Trust() {
               </span>
               <div className="font-display text-lg font-bold break-keep">{t}</div>
             </div>
-            <p className="mt-3 text-[14.5px] leading-relaxed text-muted-foreground break-keep">{d}</p>
+            <p className="mt-3 text-[14.5px] leading-relaxed text-muted-foreground break-keep">
+              {d}
+            </p>
           </div>
         ))}
       </div>
@@ -668,7 +802,10 @@ function BetaForm() {
         <div
           aria-hidden
           className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full"
-          style={{ background: "radial-gradient(circle, color-mix(in oklab, var(--primary) 25%, transparent), transparent 70%)" }}
+          style={{
+            background:
+              "radial-gradient(circle, color-mix(in oklab, var(--primary) 25%, transparent), transparent 70%)",
+          }}
         />
         <div className="grid gap-10 md:grid-cols-2 md:gap-12">
           <div>
@@ -684,12 +821,19 @@ function BetaForm() {
             <p className="mt-4 text-muted-foreground break-keep">
               패밀릿은 현재 초기 MVP를 준비 중입니다.
               <br className="hidden sm:block" />
-              부모님과 떨어져 살며 가족 이벤트, 건강검진 등을 더 잘 챙기고 싶은 자녀분들의 베타 참여를 기다립니다.
+              부모님과 떨어져 살며 가족 이벤트, 건강검진 등을 더 잘 챙기고 싶은 자녀분들의 베타
+              참여를 기다립니다.
             </p>
             <ul className="mt-6 space-y-2 text-[14.5px] break-keep">
-              <li className="flex items-center gap-2"><span className="text-primary">✓</span> 초기 사용자 한정 기능 우선 제공</li>
-              <li className="flex items-center gap-2"><span className="text-primary">✓</span> 제품 방향을 함께 만드는 피드백 채널</li>
-              <li className="flex items-center gap-2"><span className="text-primary">✓</span> 신청 1분 · 언제든 해지 가능</li>
+              <li className="flex items-center gap-2">
+                <span className="text-primary">✓</span> 초기 사용자 한정 기능 우선 제공
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-primary">✓</span> 제품 방향을 함께 만드는 피드백 채널
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-primary">✓</span> 신청 1분 · 언제든 해지 가능
+              </li>
             </ul>
           </div>
 
@@ -698,7 +842,9 @@ function BetaForm() {
               <div className="grid h-14 w-14 place-items-center rounded-full bg-primary text-2xl text-primary-foreground">
                 ✓
               </div>
-              <h3 className="mt-4 font-display text-2xl font-bold break-keep">신청이 접수되었어요</h3>
+              <h3 className="mt-4 font-display text-2xl font-bold break-keep">
+                신청이 접수되었어요
+              </h3>
               <p className="mt-2 text-muted-foreground break-keep">
                 준비가 되면 입력하신 이메일로 베타 초대장을 보내드릴게요.
               </p>
@@ -873,7 +1019,9 @@ function FAQ() {
                   +
                 </span>
               </summary>
-              <p className="mt-3 text-[14.5px] leading-relaxed text-muted-foreground break-keep whitespace-pre-line">{f.a}</p>
+              <p className="mt-3 text-[14.5px] leading-relaxed text-muted-foreground break-keep whitespace-pre-line">
+                {f.a}
+              </p>
             </details>
           ))}
         </div>
@@ -892,16 +1040,22 @@ function Footer() {
           <div className="flex items-center gap-2">
             <FamilitLogo size={32} />
             <span className="font-display text-lg font-bold">
-              Familit<span className="ml-1 text-[12px] font-semibold text-muted-foreground">패밀릿</span>
+              Familit
+              <span className="ml-1 text-[12px] font-semibold text-muted-foreground">패밀릿</span>
             </span>
           </div>
           <p className="mt-3 max-w-sm text-[13.5px] text-muted-foreground break-keep">
-            가족이 함께 챙겨야 할 일을 카드로 정리하고, 함께 확인하며 완료하게 돕는 가족 케어 운영 앱.
+            가족이 함께 챙겨야 할 일을 카드로 정리하고, 함께 확인하며 완료하게 돕는 가족 케어 운영
+            앱.
           </p>
         </div>
         <div className="flex flex-col gap-2 text-[13.5px] text-muted-foreground sm:items-end">
-          <a href="mailto:hello@familit.app" className="hover:text-foreground">hello@familit.app</a>
-          <a href="#" className="hover:text-foreground">개인정보처리방침</a>
+          <a href="mailto:hello@familit.app" className="hover:text-foreground">
+            hello@familit.app
+          </a>
+          <a href="#" className="hover:text-foreground">
+            개인정보처리방침
+          </a>
           <span>© {new Date().getFullYear()} Familit. All rights reserved.</span>
         </div>
       </div>

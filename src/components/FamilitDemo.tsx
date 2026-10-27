@@ -49,9 +49,7 @@ const DUMMY_CARDS: ActionCard[] = [
       { text: "구매 여부 확인하기", done: false },
       { text: "부모님께 전달하기", done: false },
     ],
-    comments: [
-      { who: "동생", text: "마사지기 좋을 것 같아" },
-    ],
+    comments: [{ who: "동생", text: "마사지기 좋을 것 같아" }],
   },
   {
     id: "c2",
@@ -163,14 +161,22 @@ function ScreenShell({
 
 /* ---------- Atoms ---------- */
 
-function Pill({ children, tone = "default" }: { children: React.ReactNode; tone?: "default" | "primary" | "warn" }) {
+function Pill({
+  children,
+  tone = "default",
+}: {
+  children: React.ReactNode;
+  tone?: "default" | "primary" | "warn";
+}) {
   const map = {
     default: "bg-muted text-muted-foreground",
     primary: "bg-primary-soft text-primary",
     warn: "bg-[oklch(0.95_0.04_60)] text-[oklch(0.4_0.1_50)]",
   };
   return (
-    <span className={`inline-flex items-center rounded-full px-2.5 py-1 text-[11px] font-semibold ${map[tone]}`}>
+    <span
+      className={`inline-flex items-center rounded-full px-2.5 py-1 text-[11px] font-semibold ${map[tone]}`}
+    >
       {children}
     </span>
   );
@@ -188,10 +194,8 @@ function BigBtn({
   disabled?: boolean;
 }) {
   const styles = {
-    primary:
-      "bg-primary text-primary-foreground shadow-[var(--shadow-cta)] hover:opacity-95",
-    ghost:
-      "border border-border bg-surface-elevated text-foreground hover:border-primary/40",
+    primary: "bg-primary text-primary-foreground shadow-[var(--shadow-cta)] hover:opacity-95",
+    ghost: "border border-border bg-surface-elevated text-foreground hover:border-primary/40",
     soft: "bg-primary-soft text-primary hover:brightness-95",
   };
   return (
@@ -205,13 +209,7 @@ function BigBtn({
   );
 }
 
-function Field({
-  label,
-  children,
-}: {
-  label: string;
-  children: React.ReactNode;
-}) {
+function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <label className="block">
       <span className="mb-1.5 block text-xs font-semibold text-muted-foreground">{label}</span>
@@ -382,9 +380,7 @@ function BoardScreen({
       </div>
 
       <div className="mb-5 rounded-2xl border border-primary/20 bg-primary-soft/50 p-4">
-        <div className="flex items-center gap-2 text-xs font-semibold text-primary">
-          ✨ AI 추천
-        </div>
+        <div className="flex items-center gap-2 text-xs font-semibold text-primary">✨ AI 추천</div>
         <p className="mt-1.5 text-[13.5px] leading-relaxed text-foreground">
           “가족 식사 날짜”가 흘러가고 있어요. 가족 단톡방에 공유 메시지를 보낼까요?
         </p>
@@ -403,7 +399,9 @@ function BoardScreen({
             >
               <div className="flex items-start justify-between gap-3">
                 <div className="flex items-center gap-2">
-                  <span className={`grid h-8 w-8 place-items-center rounded-lg text-base ${meta.tint}`}>
+                  <span
+                    className={`grid h-8 w-8 place-items-center rounded-lg text-base ${meta.tint}`}
+                  >
                     {meta.emoji}
                   </span>
                   <Pill>{c.category}</Pill>
@@ -440,7 +438,15 @@ function BoardScreen({
   );
 }
 
-function QuickLink({ emoji, label, onClick }: { emoji: string; label: string; onClick: () => void }) {
+function QuickLink({
+  emoji,
+  label,
+  onClick,
+}: {
+  emoji: string;
+  label: string;
+  onClick: () => void;
+}) {
   return (
     <button
       onClick={onClick}
@@ -495,7 +501,9 @@ function CreateScreen({
         <Field label="대상 가족">
           <div className="flex flex-wrap gap-2">
             {["엄마", "아빠", "동생"].map((m) => (
-              <Pill key={m} tone="primary">{m}</Pill>
+              <Pill key={m} tone="primary">
+                {m}
+              </Pill>
             ))}
           </div>
         </Field>
@@ -545,11 +553,41 @@ function AiScreen({
   }, []);
 
   const presets: Record<Category, string[]> = {
-    선물: ["선물 후보 정하기", "가족 의견 받기", "예산 정하기", "구매 여부 확인하기", "부모님께 전달하기"],
-    모임: ["날짜 후보 정하기", "가족 가능 날짜 확인하기", "식당 후보 정하기", "예약 담당자 정하기", "예약 완료 확인하기"],
-    기념일: ["축하 메시지 정리하기", "선물 정하기", "케이크/식사 예약하기", "가족 일정 공유하기", "사진 정리하기"],
-    명절: ["방문 일정 정하기", "선물·용돈 준비하기", "음식 준비 분담하기", "교통편 확인하기", "도착 인사 정리하기"],
-    건강검진: ["검진 날짜 확인하기", "예약 여부 확인하기", "준비사항 확인하기", "결과 확인 여부 체크하기", "다음 검진 주기 등록하기"],
+    선물: [
+      "선물 후보 정하기",
+      "가족 의견 받기",
+      "예산 정하기",
+      "구매 여부 확인하기",
+      "부모님께 전달하기",
+    ],
+    모임: [
+      "날짜 후보 정하기",
+      "가족 가능 날짜 확인하기",
+      "식당 후보 정하기",
+      "예약 담당자 정하기",
+      "예약 완료 확인하기",
+    ],
+    기념일: [
+      "축하 메시지 정리하기",
+      "선물 정하기",
+      "케이크/식사 예약하기",
+      "가족 일정 공유하기",
+      "사진 정리하기",
+    ],
+    명절: [
+      "방문 일정 정하기",
+      "선물·용돈 준비하기",
+      "음식 준비 분담하기",
+      "교통편 확인하기",
+      "도착 인사 정리하기",
+    ],
+    건강검진: [
+      "검진 날짜 확인하기",
+      "예약 여부 확인하기",
+      "준비사항 확인하기",
+      "결과 확인 여부 체크하기",
+      "다음 검진 주기 등록하기",
+    ],
   };
   const items = presets[category];
 
@@ -559,7 +597,9 @@ function AiScreen({
       onBack={back}
       footer={
         <div className="flex gap-2">
-          <BigBtn variant="ghost" onClick={back}>다시 생성</BigBtn>
+          <BigBtn variant="ghost" onClick={back}>
+            다시 생성
+          </BigBtn>
           <BigBtn onClick={onUse}>이 체크리스트 사용하기</BigBtn>
         </div>
       }
@@ -626,7 +666,9 @@ function CardDetailScreen({
       }
     >
       <div className={`rounded-2xl p-4 ${meta.tint}`}>
-        <div className="text-xs font-semibold opacity-80">{meta.emoji} {card.category}</div>
+        <div className="text-xs font-semibold opacity-80">
+          {meta.emoji} {card.category}
+        </div>
         <div className="mt-1 font-display text-[20px] font-bold tracking-tight text-foreground">
           {card.title}
         </div>
@@ -651,9 +693,7 @@ function CardDetailScreen({
             key={i}
             onClick={() => toggle(card.id, i)}
             className={`flex w-full items-center gap-3 rounded-xl border px-3.5 py-3 text-left transition ${
-              it.done
-                ? "border-primary/40 bg-primary-soft/40"
-                : "border-border bg-surface-elevated"
+              it.done ? "border-primary/40 bg-primary-soft/40" : "border-border bg-surface-elevated"
             }`}
           >
             <span
@@ -663,7 +703,9 @@ function CardDetailScreen({
             >
               {it.done ? "✓" : ""}
             </span>
-            <span className={`text-[14.5px] font-medium ${it.done ? "text-muted-foreground line-through" : ""}`}>
+            <span
+              className={`text-[14.5px] font-medium ${it.done ? "text-muted-foreground line-through" : ""}`}
+            >
               {it.text}
             </span>
           </button>
@@ -709,7 +751,9 @@ function GiftScreen({ back }: { back: () => void }) {
     <ScreenShell title="선물 후보 관리" onBack={back}>
       <div className="rounded-2xl bg-primary-soft/50 p-4">
         <div className="text-xs font-semibold text-primary">어버이날 선물 준비</div>
-        <div className="mt-1 font-display text-[18px] font-bold">예산 5~10만원 · 가족 의견 모으는 중</div>
+        <div className="mt-1 font-display text-[18px] font-bold">
+          예산 5~10만원 · 가족 의견 모으는 중
+        </div>
         <p className="mt-1.5 text-[12.5px] text-muted-foreground">
           부모님 취향 메모: 실용적인 것, 부담 없는 것
         </p>
@@ -733,7 +777,9 @@ function GiftScreen({ back }: { back: () => void }) {
             </div>
             <div className="flex flex-col items-end gap-1">
               <Pill tone="primary">👍 {g.votes}</Pill>
-              {picked === i && <span className="text-[11px] font-semibold text-primary">선택됨</span>}
+              {picked === i && (
+                <span className="text-[11px] font-semibold text-primary">선택됨</span>
+              )}
             </div>
           </button>
         ))}
@@ -799,7 +845,10 @@ function MeetingScreen({ back }: { back: () => void }) {
             </div>
             <div className="mt-1.5 flex flex-wrap gap-1.5">
               {it.who.map((w) => (
-                <span key={w} className="rounded-full bg-muted px-2 py-0.5 text-[11px] font-semibold">
+                <span
+                  key={w}
+                  className="rounded-full bg-muted px-2 py-0.5 text-[11px] font-semibold"
+                >
                   {w}
                 </span>
               ))}
@@ -873,8 +922,8 @@ function HealthScreen({ back }: { back: () => void }) {
       </div>
 
       <p className="mt-4 rounded-xl bg-muted/60 p-3 text-[12px] leading-relaxed text-muted-foreground">
-        Familit은 의료 진단이나 치료 조언을 제공하지 않습니다. 검사 수치·진단서·결과 파일은 입력받지 않으며,
-        가족이 일정과 준비를 함께 챙기도록 돕습니다.
+        Familit은 의료 진단이나 치료 조언을 제공하지 않습니다. 검사 수치·진단서·결과 파일은 입력받지
+        않으며, 가족이 일정과 준비를 함께 챙기도록 돕습니다.
       </p>
     </ScreenShell>
   );
@@ -890,7 +939,9 @@ function ParentScreen({ back, onRespond }: { back: () => void; onRespond: () => 
         <div className="mt-2 font-display text-[24px] font-bold leading-snug text-foreground">
           이번 가족 식사 날짜를 골라주세요
         </div>
-        <p className="mt-2 text-[14px] text-foreground/75">자녀가 정리해뒀어요. 편하신 날을 눌러주세요.</p>
+        <p className="mt-2 text-[14px] text-foreground/75">
+          자녀가 정리해뒀어요. 편하신 날을 눌러주세요.
+        </p>
       </div>
 
       <div className="mt-5 space-y-3">
@@ -948,12 +999,17 @@ function BetaScreen({ back }: { back: () => void }) {
     return (
       <ScreenShell title="신청 완료" onBack={back}>
         <div className="flex h-full flex-col items-center justify-center text-center">
-          <div className="grid h-16 w-16 place-items-center rounded-full bg-primary-soft text-2xl">✓</div>
+          <div className="grid h-16 w-16 place-items-center rounded-full bg-primary-soft text-2xl">
+            ✓
+          </div>
           <div className="mt-4 font-display text-[22px] font-bold">신청해주셔서 감사합니다</div>
           <p className="mt-2 max-w-xs text-[14px] text-muted-foreground">
             베타 오픈 시 가장 먼저 안내드릴게요. 더 나은 가족 케어 도구를 만들겠습니다.
           </p>
-          <button onClick={back} className="mt-6 text-sm font-semibold text-primary hover:underline">
+          <button
+            onClick={back}
+            className="mt-6 text-sm font-semibold text-primary hover:underline"
+          >
             데모로 돌아가기
           </button>
         </div>
@@ -972,13 +1028,22 @@ function BetaScreen({ back }: { back: () => void }) {
     >
       {step === 1 ? (
         <div className="space-y-3.5">
-          <Field label="이름"><TextInput placeholder="홍길동" /></Field>
-          <Field label="이메일"><TextInput type="email" placeholder="you@example.com" /></Field>
-          <Field label="연락처"><TextInput placeholder="010-0000-0000" /></Field>
+          <Field label="이름">
+            <TextInput placeholder="홍길동" />
+          </Field>
+          <Field label="이메일">
+            <TextInput type="email" placeholder="you@example.com" />
+          </Field>
+          <Field label="연락처">
+            <TextInput placeholder="010-0000-0000" />
+          </Field>
           <Field label="연령대">
             <div className="flex flex-wrap gap-2">
               {["20대", "30대", "40대", "50대+"].map((a) => (
-                <button key={a} className="rounded-full border border-border bg-surface-elevated px-4 py-2 text-sm font-semibold hover:border-primary/40">
+                <button
+                  key={a}
+                  className="rounded-full border border-border bg-surface-elevated px-4 py-2 text-sm font-semibold hover:border-primary/40"
+                >
                   {a}
                 </button>
               ))}
@@ -987,7 +1052,10 @@ function BetaScreen({ back }: { back: () => void }) {
           <Field label="부모님과 별도 거주하시나요?">
             <div className="flex gap-2">
               {["예", "아니오"].map((a) => (
-                <button key={a} className="flex-1 rounded-xl border border-border bg-surface-elevated px-3 py-2.5 text-sm font-semibold hover:border-primary/40">
+                <button
+                  key={a}
+                  className="flex-1 rounded-xl border border-border bg-surface-elevated px-3 py-2.5 text-sm font-semibold hover:border-primary/40"
+                >
                   {a}
                 </button>
               ))}
@@ -999,7 +1067,10 @@ function BetaScreen({ back }: { back: () => void }) {
           <Field label="부모님 연령대">
             <div className="flex flex-wrap gap-2">
               {["50대", "60대", "70대", "80대+"].map((a) => (
-                <button key={a} className="rounded-full border border-border bg-surface-elevated px-4 py-2 text-sm font-semibold">
+                <button
+                  key={a}
+                  className="rounded-full border border-border bg-surface-elevated px-4 py-2 text-sm font-semibold"
+                >
                   {a}
                 </button>
               ))}
@@ -1010,17 +1081,25 @@ function BetaScreen({ back }: { back: () => void }) {
           </Field>
           <Field label="가장 챙기기 어려운 항목">
             <div className="flex flex-wrap gap-2">
-              {["가족 모임", "생신·기념일", "명절·경조사", "선물 준비", "건강검진", "기타"].map((a) => (
-                <button key={a} className="rounded-full border border-border bg-surface-elevated px-3.5 py-1.5 text-[13px] font-semibold">
-                  {a}
-                </button>
-              ))}
+              {["가족 모임", "생신·기념일", "명절·경조사", "선물 준비", "건강검진", "기타"].map(
+                (a) => (
+                  <button
+                    key={a}
+                    className="rounded-full border border-border bg-surface-elevated px-3.5 py-1.5 text-[13px] font-semibold"
+                  >
+                    {a}
+                  </button>
+                ),
+              )}
             </div>
           </Field>
           <Field label="사용자 인터뷰 참여 가능 여부">
             <div className="flex gap-2">
               {["참여 가능", "어려움"].map((a) => (
-                <button key={a} className="flex-1 rounded-xl border border-border bg-surface-elevated px-3 py-2.5 text-sm font-semibold">
+                <button
+                  key={a}
+                  className="flex-1 rounded-xl border border-border bg-surface-elevated px-3 py-2.5 text-sm font-semibold"
+                >
                   {a}
                 </button>
               ))}
@@ -1032,13 +1111,7 @@ function BetaScreen({ back }: { back: () => void }) {
   );
 }
 
-function MenuSheet({
-  go,
-  close,
-}: {
-  go: (s: ScreenId) => void;
-  close: () => void;
-}) {
+function MenuSheet({ go, close }: { go: (s: ScreenId) => void; close: () => void }) {
   const items: { k: ScreenId; label: string; emoji: string }[] = [
     { k: "board", label: "케어보드 홈", emoji: "🏠" },
     { k: "create", label: "카드 만들기", emoji: "➕" },
@@ -1051,10 +1124,7 @@ function MenuSheet({
   ];
   return (
     <div className="absolute inset-0 z-30 flex flex-col bg-black/40" onClick={close}>
-      <div
-        className="mt-auto rounded-t-3xl bg-background p-5"
-        onClick={(e) => e.stopPropagation()}
-      >
+      <div className="mt-auto rounded-t-3xl bg-background p-5" onClick={(e) => e.stopPropagation()}>
         <div className="mx-auto mb-3 h-1.5 w-10 rounded-full bg-muted" />
         <div className="mb-2 text-xs font-semibold text-muted-foreground">화면 이동</div>
         <div className="grid grid-cols-2 gap-2">
@@ -1116,12 +1186,10 @@ export default function FamilitDemo() {
         c.id === id
           ? {
               ...c,
-              checklist: c.checklist.map((it, i) =>
-                i === idx ? { ...it, done: !it.done } : it
-              ),
+              checklist: c.checklist.map((it, i) => (i === idx ? { ...it, done: !it.done } : it)),
             }
-          : c
-      )
+          : c,
+      ),
     );
   };
 
@@ -1134,8 +1202,8 @@ export default function FamilitDemo() {
               status: "엄마 응답 도착",
               comments: [...c.comments, { who: "엄마", text: "6월 22일 점심 좋아요" }],
             }
-          : c
-      )
+          : c,
+      ),
     );
   };
 
