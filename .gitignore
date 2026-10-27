@@ -41,3 +41,21 @@ dist-ssr
 **/node_modules/
 **/.next/
 **/*.tsbuildinfo
+
+# Personal working notes stay local; README is a portfolio presentation.
+**/AGENTS.md
+**/HANDOFF*.md
+**/PROJECT_STATUS.md
+**/VERIFICATION.md
+**/PORTFOLIO_UPDATE.md
+/notebooks/local/
+/AGENTS.md
+/README_PAYMENT.md
+/archives/README.md
+/archives/next-phase0/README.md
+/archives/next-phase1/README.md
+/docs/HANDOFF.md
+/docs/PORTFOLIO_UPDATE.md
+/docs/PROJECT_STATUS.md
+/docs/VERIFICATION.md
+/src/routes/README.md
