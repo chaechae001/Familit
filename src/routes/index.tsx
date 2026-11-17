@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import FamilitLanding from "@/components/FamilitLanding";
+import FamilitLanding from "@/components/landing/FamilitLanding";
 
 export const Route = createFileRoute("/")({
   head: () => ({
